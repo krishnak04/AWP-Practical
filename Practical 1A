@@ -1,0 +1,36 @@
+# Create an application to print on screen the output of adding, subtracting, 
+multiplying and dividing two numbers entered by the user in C#. # 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical_1.A
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Name:krishna.k");
+            Console.WriteLine("Enter the first number");
+            double num1 = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Enter the second number");
+            double num2 = Convert.ToDouble(Console.ReadLine());
+
+            double addition = num1 + num2;
+            double subtrctaion = num1 - num2;
+            double multiplication = num1 * num2;
+            double division = num1 / num2;
+
+            Console.WriteLine($"Result:---");
+            Console.WriteLine($"\nAddition={num1}+{num2}={addition}");
+            Console.WriteLine($"\nSubtraction={num1}-{num2}={subtrctaion}");
+            Console.WriteLine($"\nMultiplication={num1}*{num2}={multiplication}");
+            Console.WriteLine($"\nDivision={num1}/{num2}={division}");
+            Console.ReadKey();
+        }
+    }
+}
