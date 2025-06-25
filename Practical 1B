@@ -16,6 +16,7 @@ namespace Practical_1.B
             Console.WriteLine("Enter number of rows for Floyd's Triangle:");
             int rows = int.Parse(Console.ReadLine());
             int num = 1;
+            Console.WriteLine($"Result:---");
 
             for (int i = 1; i <= rows; i++) 
             {
