@@ -1,0 +1,33 @@
+# Create a simple application to demonstrate the concepts boxing and unboxing. #
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical_2A
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Name:krishna.k");
+            int num = 123;
+            object obj = num;
+            obj = 321;
+
+            Console.WriteLine($"Result:--\n");
+            Console.WriteLine("Boxing");
+            Console.WriteLine($"Value type(int):{num}");
+            Console.WriteLine($"Boxed type(object:{obj}");
+
+            int UnBoxed = (int)obj;
+            Console.WriteLine("\nUnBoxing");
+            Console.WriteLine($"Boxed type(object:{obj}");
+            Console.WriteLine($"Value type(int):{num}");
+            Console.WriteLine($"UnBoxed type(int):{UnBoxed}");
+            Console.ReadLine();
+        }
+    }
+}
