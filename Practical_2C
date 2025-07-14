@@ -1,0 +1,33 @@
+# Create a simple application to demonstrate use of the concepts of interfaces. #
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical_2C
+{
+    interface Animal
+    {
+        void Animalsound();
+    }
+    class Pig : Animal
+    {
+        public void Animalsound()
+        {
+            Console.WriteLine("Name:krishna.k");
+            Console.WriteLine($"Result:--\n");
+            Console.WriteLine("The Pig Says:WeepSound");
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Pig myPig = new Pig();
+            myPig.Animalsound();
+            Console.ReadKey();
+        }
+    }
+}
