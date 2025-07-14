@@ -1,0 +1,43 @@
+# Create a simple application to perform addition and subtraction using delegate. #
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practical_2B
+{
+    public delegate int Operation(int x, int y);
+    internal class Program
+    {
+        public static int Add(int x, int y)
+        {
+            return x + y;
+        }
+        public static int Sub(int x, int y)
+        {
+            return x - y;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Name:krishna.k");
+            Operation AddOperation = new Operation(Add);
+            Operation SubOperation = new Operation(Sub);
+
+            Console.WriteLine("Enter a 1st Number.");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter a 2nd Number.");
+            int num2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Result:--\n");
+            int AdditionResult = AddOperation(num1, num2);
+            Console.WriteLine($"Addition Result:{AdditionResult}");
+
+            int SubtractResult = SubOperation(num1, num2);
+            Console.WriteLine($"Subtract Result:{SubtractResult}");
+
+        }
+    }
+}
