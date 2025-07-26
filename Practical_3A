@@ -1,0 +1,151 @@
+# Create a simple web page with various server controls to demonstrate setting and use of their properties. (Example : AutoPostBack). #
+
+HTML CODE:--
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Practical_3A.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form 
+        id="form1" 
+        runat="server">
+        <div>
+            <asp:Label 
+                ID="Label1" 
+                runat="server" 
+                Text="Roll No :--">
+            </asp:Label>
+&nbsp;
+            <asp:TextBox 
+                ID="TextBox1" 
+                runat="server">
+            </asp:TextBox>
+            <br />
+            <br />
+            <asp:Label 
+                ID="Label2" 
+                runat="server" 
+                Text="Name :--">
+            </asp:Label>
+&nbsp;
+            <asp:TextBox 
+                ID="TextBox2" 
+                runat="server">
+            </asp:TextBox>
+            <br />
+            <br />
+            <asp:Label 
+                ID="Label3" 
+                runat="server" 
+                Text="Class :--">
+            </asp:Label>
+&nbsp;
+            <asp:RadioButton 
+                ID="RadioButton_FY" 
+                runat="server"
+                GroupName="class" 
+                Text="FY" />
+&nbsp;
+            <asp:RadioButton 
+                ID="RadioButton_SY" 
+                runat="server" 
+                GroupName="class" 
+                Text="SY" />
+&nbsp;
+            <asp:RadioButton 
+                ID="RadioButton_TY" 
+                runat="server" 
+                GroupName="class" 
+                Text="TY" />
+            <br />
+            <br />
+            <asp:Label 
+                ID="Label4"
+                runat="server" 
+                Text="Course :--">
+            </asp:Label>
+&nbsp;
+            <asp:DropDownList 
+                ID="DropDownList1" 
+                runat="server" 
+                OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem>B.Sc.IT</asp:ListItem>
+                <asp:ListItem>BBI</asp:ListItem>
+                <asp:ListItem>BMS</asp:ListItem>
+                <asp:ListItem>B.Com</asp:ListItem>
+                <asp:ListItem>BAMMC</asp:ListItem>
+                <asp:ListItem>BAF</asp:ListItem>
+            </asp:DropDownList>
+            <br />
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button 
+                ID="Button" 
+                runat="server" 
+                OnClick="Button_Click" 
+                Text="Submit" />
+            <br />
+            <br />
+            <asp:Label 
+                ID="Res" 
+                runat="server"></asp:Label>
+&nbsp;
+            <asp:Label 
+                ID="Res1" 
+                runat="server">
+            </asp:Label>
+        </div>
+    </form>
+</body>
+</html>
+
+SOURCE CODE :--
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Practical_3A
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button_Click(object sender, EventArgs e)
+        {
+            String s;
+            if (RadioButton_FY.Checked == true)
+            {
+                s = RadioButton_FY.Text;
+            }
+            if (RadioButton_SY.Checked == true)
+            {
+                s = RadioButton_SY.Text;
+            }
+            else
+            {
+                s = RadioButton_TY.Text;
+            }
+            Res.Text += TextBox1.Text + " " + TextBox2.Text + " " + "You Have Been Enrolled In " + s;
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Res1.Text += "In " + DropDownList1.SelectedItem;
+        }
+    }
+}
