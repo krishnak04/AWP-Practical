@@ -1,0 +1,111 @@
+# Demonstrate the use of Tree view operations on the web form. #
+
+HTML CODE :--
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="Practical_3C.WebForm1" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>TreeView Example - Krishna.k</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            Name: Krishna.k<br /><br />
+
+            <asp:TreeView ID="TreeView1" 
+                runat="server"
+                OnSelectedNodeChanged="TreeView1_SelectedNodeChanged"
+                OnTreeNodeCollapsed="TreeView1_TreeNodeCollapsed"
+                Height="250px" 
+                Width="175px" 
+                ImageSet="Contacts" 
+                NodeIndent="10">
+                <HoverNodeStyle 
+                    Font-Underline="False" />
+                <Nodes>
+                    <asp:TreeNode 
+                        Text="B.Sc.IT" 
+                        Value="B.Sc.IT">
+                        <asp:TreeNode 
+                            Text="FY B.Sc.IT" 
+                            Value="FY B.Sc.IT" />
+                        <asp:TreeNode 
+                            Text="SY B.Sc.IT" 
+                            Value="SY B.Sc.IT" />
+                        <asp:TreeNode 
+                            Text="TY B.Sc.IT" 
+                            Value="TY B.Sc.IT" />
+                    </asp:TreeNode>
+                    <asp:TreeNode 
+                        Text="B.Com" 
+                        Value="B.Com">
+                        <asp:TreeNode 
+                            Text="FY B.Com" 
+                            Value="FY B.Com" />
+                        <asp:TreeNode 
+                            Text="SY B.Com" 
+                            Value="SY B.Com" />
+                        <asp:TreeNode 
+                            Text="TY B.Com" 
+                            Value="TY B.Com" />
+                    </asp:TreeNode>
+                </Nodes>
+                <NodeStyle 
+                    Font-Names="Verdana" 
+                    Font-Size="8pt" 
+                    ForeColor="Black" 
+                    HorizontalPadding="5px" 
+                    NodeSpacing="0px" 
+                    VerticalPadding="0px" />
+                <ParentNodeStyle 
+                    Font-Bold="True" 
+                    ForeColor="#5555DD" />
+                <SelectedNodeStyle 
+                    Font-Underline="True" 
+                    HorizontalPadding="0px" 
+                    VerticalPadding="0px" />
+            </asp:TreeView>
+
+            <asp:Label 
+                ID="Res" 
+                runat="server"></asp:Label>
+
+            &nbsp;
+
+            <br />
+        </div>
+    </form>
+</body>
+</html>
+
+SOURCE CODE :--
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Practical_3C
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TreeView1_SelectedNodeChanged(object sender,EventArgs e)
+        {
+            Res.Text = "You Have Selected The Option " +TreeView1.SelectedValue;
+        }
+
+        protected void TreeView1_TreeNodeCollapsed(object sender,TreeNodeEventArgs e)
+        {
+            Res.Text = "The Value Collapsed Was " + e.Node.Value;
+        }
+    }
+}
